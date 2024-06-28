@@ -25,7 +25,7 @@ class InventoryList(mixins.ListModelMixin,
         #TODO may need to convert/validate param into datetime
         min_created = self.request.query_params.get('min_created')
         if min_created is not None:
-            filt.update(created_at__gte=min_created)
+            filt.update(created_at__gt=min_created)
         #TODO other params
         queryset = queryset.filter(**filt)
         return queryset
